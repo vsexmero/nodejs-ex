@@ -41,8 +41,8 @@
         "ports": [
           {
             "name": "web",
-            "port": 80,
-            "targetPort": 80
+            "port": 8080,
+            "targetPort": 8080
           }
         ],
         "selector": {
@@ -188,7 +188,7 @@
                 "image": " ",
                 "ports": [
                   {
-                    "containerPort": 80
+                    "containerPort": 8080
                   }
                 ],
                 "env": [
@@ -233,7 +233,7 @@
                   "initialDelaySeconds": 3,
                   "httpGet": {
                     "path": "/pagecount",
-                    "port": 80
+                    "port": 8080
                   }
                 },
                 "livenessProbe": {
@@ -241,7 +241,7 @@
                   "initialDelaySeconds": 30,
                   "httpGet": {
                     "path": "/pagecount",
-                    "port": 80
+                    "port": 8080
                   }
                 },
                 "resources": {
