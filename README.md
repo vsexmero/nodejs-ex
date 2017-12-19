@@ -96,7 +96,7 @@ Which should return something like:
 
         In project nodejs (nodejs-echo) on server https://10.2.2.2:8443
 
-        svc/nodejs-ex - 172.30.108.183:8080
+        svc/nodejs-ex - 172.30.108.183:80
           dc/nodejs-ex deploys istag/nodejs-ex:latest <-
             bc/nodejs-ex builds https://github.com/openshift/nodejs-ex with openshift/nodejs:0.10
               build #1 running for 7 seconds
@@ -116,10 +116,10 @@ Deployment happens automatically once the new application image is available.  T
 
         $ oc get svc
 
-This will help indicate what IP address the service is running, the default port for it to deploy at is 8080. Output should look like:
+This will help indicate what IP address the service is running, the default port for it to deploy at is 80. Output should look like:
 
         NAME        CLUSTER-IP       EXTERNAL-IP   PORT(S)    SELECTOR                                AGE
-        nodejs-ex   172.30.249.251   <none>        8080/TCP   deploymentconfig=nodejs-ex,name=myapp   17m
+        nodejs-ex   172.30.249.251   <none>        80/TCP   deploymentconfig=nodejs-ex,name=myapp   17m
 
 #### Configure routing
 
@@ -156,7 +156,7 @@ Running `oc status` or checking the web console will reveal the address of the n
 	  dc/mongodb-26-centos7 deploys istag/mongodb-26-centos7:latest
 	    deployment #1 running for 43 seconds - 1 pod
 
-	http://10.2.2.2 to pod port 8080-tcp (svc/nodejs-ex)
+	http://10.2.2.2 to pod port 80-tcp (svc/nodejs-ex)
 	  dc/nodejs-ex deploys istag/nodejs-ex:latest <-
 	    bc/nodejs-ex builds https://github.com/openshift/nodejs-ex with openshift/nodejs:0.10
 	    deployment #1 deployed 14 minutes ago - 1 pod
@@ -179,7 +179,7 @@ Then check `oc status` to see that an updated deployment has been kicked off:
 	  dc/mongodb-26-centos7 deploys istag/mongodb-26-centos7:latest
 	    deployment #1 deployed 2 hours ago - 1 pod
 
-	http://10.2.2.2 to pod port 8080-tcp (svc/nodejs-ex)
+	http://10.2.2.2 to pod port 80-tcp (svc/nodejs-ex)
 	  dc/nodejs-ex deploys istag/nodejs-ex:latest <-
 	    bc/nodejs-ex builds https://github.com/openshift/nodejs-ex with openshift/nodejs:0.10
 	    deployment #2 deployed about a minute ago - 1 pod
